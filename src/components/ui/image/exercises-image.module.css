@@ -1,0 +1,25 @@
+.picture {
+    display: block;
+  }
+  
+  .image {
+    width: 335px; /* По умолчанию изображение занимает всю ширину */
+    height: 206px; /* Автоматическая высота */
+  }
+  
+  
+  
+  @media (min-width: 768px) {
+    .image {
+      width: 224px; /* Размеры для мобильных устройств */
+      height: 206px;
+    }
+
+  }
+
+  @media (min-width: 1280px) {
+    .image {
+      width: 237px; /* Размеры для планшета */
+      height: 206px;
+    }
+  }
