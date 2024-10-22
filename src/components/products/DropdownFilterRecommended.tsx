@@ -1,4 +1,3 @@
-import { IGetCategory } from "@/types/product"
 
 interface IRecommendedFiler {
     id: string,

@@ -2,7 +2,6 @@ import { fetchWithAuth } from "@/api/helpers";
 import {
   IFilters,
   IGetProductList,
-  IProductCard,
   IGetCategory,
 } from "@/types/product";
 

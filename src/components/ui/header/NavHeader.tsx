@@ -9,9 +9,8 @@ import LaptopNav from './LaptopNav';
 import Logout from '../logout/Logout';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
-import { ProfileService } from '@/services/ProfileService';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { getProfileAvatar } from '../../../../actions/profile';
 
 

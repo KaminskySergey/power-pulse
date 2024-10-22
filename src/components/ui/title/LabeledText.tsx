@@ -8,7 +8,7 @@ interface ILabeledText {
 }
 
 export default function LabeledText({ text, value, isRecommended, className, isBlood }: ILabeledText) {
-    const bgColor = !isRecommended ? 'bg-greenCircle' : 'bg-redСircle'
+    // const bgColor = !isRecommended ? 'bg-greenCircle' : 'bg-redСircle'
     return <div className={`flex flex-col gap-[8px]  font-normal leading-[18px] ${className}`}>
         <div className="text-[12px] text-orangeWhite">
             <p>{text}</p>

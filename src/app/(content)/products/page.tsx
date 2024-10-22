@@ -35,6 +35,7 @@ export default async function Products({ searchParams }: { searchParams: { [key:
 
 
     const data = await getProducts(page, searchTerm, category, allowed)
+    console.log(data, 'tttttttttttttttttttttttttttttt')
     const categories = await getCategory()
     const profile: IProfile = await getProfile()
     return <ProductsComponent allowed={allowed as string} category={category as string} searchTerm={searchTerm as string} categories={categories} bloodProfile={profile.blood} products={data.products} />

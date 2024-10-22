@@ -1,13 +1,11 @@
 
 import Header from "@/components/ui/header/Header";
 import React from "react";
-import { auth } from "../../auth";
 export default async function Layout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const session = await auth()
     return (
      <>
      <Header />

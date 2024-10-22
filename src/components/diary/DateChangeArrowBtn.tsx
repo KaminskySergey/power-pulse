@@ -1,7 +1,5 @@
 'use client'
-import { Dispatch, SetStateAction, useEffect, useState } from "react"
-import Ttag from "../ui/title/Ttag"
-import CalendarIcon from "../svg/CalendarIcon"
+import { Dispatch, SetStateAction, useEffect } from "react"
 import { addDays, format, isAfter, parse, subDays } from "date-fns"
 
 import { useSearchParamsHook } from "../hooks/useSearchParamsHook"

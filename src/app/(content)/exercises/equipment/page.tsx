@@ -1,10 +1,9 @@
 
 import { ExercisesNav } from "@/components/exercises/ExercisesNav";
-import { GalleryExercisesComponent } from "@/components/exercises/GalleryExerxisesComponet";
 import { GalleryItemExercises } from "@/components/exercises/GalleryItemExercises";
 import { GalleryExercises } from "@/components/exercises/GalleryListExercises";
 import Ttag from "@/components/ui/title/Ttag";
-import { bodyParts, equipment } from "@/configs/exercises";
+import { equipment } from "@/configs/exercises";
 import { unstable_noStore as noStore } from 'next/cache';
 interface Props { }
 
@@ -26,7 +25,7 @@ export default async function Equipment({ }: Props) {
         </div>
         <GalleryExercises>
             {equipment.map((el, idx) => (
-                <GalleryItemExercises item={el} idx={idx} pageFolder="equipment" pageName="Equipment" />
+                <GalleryItemExercises key={idx} item={el} idx={idx} pageFolder="equipment" pageName="Equipment" />
             ))}
         </GalleryExercises>
     </>

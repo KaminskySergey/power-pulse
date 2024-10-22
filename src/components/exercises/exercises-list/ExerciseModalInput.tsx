@@ -1,11 +1,10 @@
 'use client'
-
-import Button from "@/components/ui/button/Button";
+import React from "react";
 import Input from "@/components/ui/input/Input";
 import { useState } from "react";
 
 
-interface Props {
+interface IExerciseModalInput {
     time: string
     calculateCalories: () => number
     handleTimeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -13,7 +12,7 @@ interface Props {
 }
 const timeOptions = [
     '0:30', '1', '1:30', '2', '2:30', '3'
-  ];
+];
 
 const parseTime = (timeStr: string) => {
     const [minutes, seconds] = timeStr.split(':').map(Number);
@@ -30,11 +29,7 @@ export function ExerciseModalInput({
     handleTimeChange,
     time,
     calculateCalories
-}: {
-    handleTimeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    time: string;
-    calculateCalories: () => number;
-}) {
+}: IExerciseModalInput) {
     const [selectedTime, setSelectedTime] = useState<string>(time);
 
     const handleTimeClick = (time: string) => {
@@ -72,11 +67,11 @@ export function ExerciseModalInput({
                     </button>
                 ))}
                 <button
-                onClick={handleClear}
-                className="py-[8px] px-[16px] bg-redError text-white rounded-md"
-            >
-                Clear
-            </button>
+                    onClick={handleClear}
+                    className="py-[8px] px-[16px] bg-redError text-white rounded-md"
+                >
+                    Clear
+                </button>
             </div>
             <Input
                 name="time"
@@ -86,14 +81,14 @@ export function ExerciseModalInput({
                 className="text-whiteGray-0 md:text-[16px] px-[14px] py-[8px] max-w-[324px] outline-none border border-orange transition-all"
                 id="timeInput"
                 type="text"
-                
+
             />
             <div>
                 <p className="font-normal leading-[18px] text-[14px]">
                     You burned Calories: <span className="text-orange">{calculateCalories().toFixed(2)}</span>
                 </p>
             </div>
-            
+
         </div>
     );
 }

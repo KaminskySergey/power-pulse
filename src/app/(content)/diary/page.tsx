@@ -1,9 +1,7 @@
 import { auth } from "@/auth";
 import DiaryComponent from "@/components/diary/DiaryComponent";
-import { DiaryService } from "@/services/DiaryService";
 import { getDailyActivity } from "../../../../actions/daily";
 import { getCurrentDate } from "@/utils/utils";
-import { getInfoCardCurrenDay } from "../../../../actions/profile";
 
 
 

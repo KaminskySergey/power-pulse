@@ -5,9 +5,8 @@ import { cn } from "@/utils/utils"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-interface Props { }
 
-export function ExercisesNav({ }: Props) {
+export function ExercisesNav() {
     const pathname = usePathname()
     return <ul className="flex gap-[28px] md:gap-[32px]">
         {

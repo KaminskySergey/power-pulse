@@ -17,11 +17,9 @@ export default async function PageBodyPartsBySlug({ params }: { params: { slug: 
             <ExercisesBg />
             <div className="flex flex-col gap-[20px] md:flex-row  md:justify-between ">
                 <div>
-                    {/* title */}
                     <Ttag tag="h2">{formatSlug(params.slug)}</Ttag>
                 </div>
                 <div className="flex gap-[8px]">
-                    {/* inputs */}
                     <div className="h-[6px]">
                         <ExercisesNav />
                     </div>

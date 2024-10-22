@@ -3,7 +3,7 @@ import { IProductCard } from "@/types/product";
 import { ProductItem } from "./ProductItem";
 import { ProductsList } from "./ProductsList";
 import { Blood } from "@/types/profile";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useInView } from 'react-intersection-observer'
 import { getProducts } from "../../../actions/products";
 import { NotProducts } from "./NotProducts";

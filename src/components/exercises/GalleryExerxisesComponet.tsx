@@ -2,8 +2,7 @@
 
 import { IExercisesGallery } from "@/types/exercise"
 import { GalleryItemExercises } from "./GalleryItemExercises"
-import { GalleryExercises } from "./GalleryListExercises"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';

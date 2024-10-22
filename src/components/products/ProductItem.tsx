@@ -8,7 +8,6 @@ import { Blood } from "@/types/profile"
 import { ManRunIcon } from "../svg/ManRunIcon"
 import { TitleCard } from "../ui/title/TitleCard"
 import { useState } from "react"
-import Modal from "../ui/modal/Modal"
 import { ProductsModal } from "./ProductsModal"
 
 interface IProductItem {

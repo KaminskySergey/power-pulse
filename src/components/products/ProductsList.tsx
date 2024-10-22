@@ -1,6 +1,6 @@
 'use client'
 
-import { ReactNode, Ref, RefObject } from "react"
+import { ReactNode} from "react"
 
 interface IProductsList {
     children: ReactNode

@@ -1,5 +1,5 @@
 'use client'
-
+import React from "react"
 import { doLogout } from "@/app/actions/logout"
 import LogoutIcon from "@/components/svg/LogoutIcon"
 
@@ -12,7 +12,7 @@ export default function Logout({fill, className}: ILogout) {
 
     const handleLogout = async () => {
         try {
-            const response = await doLogout()
+             await doLogout()
         } catch (error) {
             
         }

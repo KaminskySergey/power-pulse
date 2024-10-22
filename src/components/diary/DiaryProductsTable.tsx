@@ -1,15 +1,10 @@
 'use client'
-import { truncateText } from "@/utils/truncate-text";
 import ShoppingCartIcon from "../svg/ShoppingCartIcon";
 import TextWithBorder from "../ui/title/TextWithBorder";
 import { IDiaryConsumedProducts } from "@/types/diary";
 import { canEatProduct } from "@/utils/can-eat-product";
 import { BloodGroup } from "@/types/product";
-import { deleteDailyActivityProduct } from "../../../actions/daily";
-import { auth } from "@/auth";
 import { useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
-import { handleToastError, handleToastSuccess } from "@/utils/toast";
 
 interface IDiaryProductsTable {
     products: IDiaryConsumedProducts[],
@@ -21,22 +16,7 @@ interface IDiaryProductsTable {
 
 export default function DiaryProductsTable({ products, bloodProfile, onDelete }: IDiaryProductsTable) {
     const { data: session } = useSession();
-    // const [currentProducts, setCurrentProducts] = useState(products);
-
-    // useEffect(() => {
-    //     setProducts(consumedProducts);
-    // }, [consumedProducts]);
-
-    // const handleDelete = async (id: string, date: string) => {
-    //     try {
-    //         await deleteDailyActivityProduct(session?.user.accessToken || '', id, date);
-    //         handleToastSuccess("Product Delete")
-    //         setProducts(prevProducts => prevProducts.filter(product => product.id !== id));
-    //     } catch (error) {
-    //         handleToastError('Something went wrong')
-    //         console.error("Failed to delete:", error);
-    //     }
-    // };
+   
 
     if (!session) return <p>Loading...</p>; 
 

@@ -3,7 +3,6 @@ import ArrowRightIcon from "@/components/svg/ArrowRightIcon";
 import Button from "../button/Button";
 import DiaryListMobile from "@/components/diary/DiaryListMobile";
 import DiaryExerciseItem from "@/components/diary/DiaryExerciseItem";
-import DiaryProductsTable from "@/components/diary/DiaryProductsTable";
 import DiaryExercisesTable from "@/components/diary/DiaryExercisesTable";
 import { IDiaryPerformedExercise } from "@/types/diary";
 import { useEffect, useState } from "react";

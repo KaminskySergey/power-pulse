@@ -2,7 +2,6 @@ import { fetchWithAuth } from "@/api/helpers";
 import {
   ICalculateBmr,
   IAvatar,
-  IProfileCurrentInfo,
   IProfileUpdate,
 } from "@/types/profile";
 import { IProfile } from "@/types/profile";

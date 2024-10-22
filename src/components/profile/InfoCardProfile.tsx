@@ -1,5 +1,4 @@
 
-import { ProfileService } from "@/services/ProfileService";
 import DubbleIcon from "../svg/DubbleIcon";
 import FoodIcon from "../svg/FoodIcon";
 import InfoCard from "../ui/card/InfoCard";

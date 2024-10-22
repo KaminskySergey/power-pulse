@@ -1,8 +1,6 @@
 'use client'
 import ArrowRightIcon from "@/components/svg/ArrowRightIcon";
 import Button from "../button/Button";
-import LabeledText from "../title/LabeledText";
-import DiaryProductsList from "@/components/diary/DiaryListMobile";
 import DiaryProductItem from "@/components/diary/DiaryProductItem";
 import DiaryListMobile from "@/components/diary/DiaryListMobile";
 import DiaryProductsTable from "@/components/diary/DiaryProductsTable";

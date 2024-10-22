@@ -1,9 +1,9 @@
 'use client'
-import { ChangeEvent, Dispatch, SetStateAction, useEffect, useMemo, useRef, useState } from "react";
+import { ChangeEvent, Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import Input from "../ui/input/Input";
 import { ArrowFilterIcon } from "../svg/ArrowFilterIcon";
 import { DropdownFilterRecommended } from "./DropdownFilterRecommended";
-import { IGetCategory, IProductCard } from "@/types/product";
+import { IGetCategory } from "@/types/product";
 import { useSearchParamsHook } from "../hooks/useSearchParamsHook";
 import { DropdownFilterCategory } from "./DropdownFilterCategory";
 import CrossIconSearch from "../svg/CrossIconSearch";

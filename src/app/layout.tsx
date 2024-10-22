@@ -5,7 +5,6 @@ import { Toaster } from "react-hot-toast";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "../auth";
-// import AuthProvider from "@/providers/AuthProvider";
 
 
 const roboto = Roboto({

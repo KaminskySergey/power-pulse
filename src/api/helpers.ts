@@ -1,8 +1,8 @@
 // import axios from 'axios'
 // import { getSession } from 'next-auth/react';
 // import { NextRequest } from 'next/server';
-import Cookies from "js-cookie";
 // import { cookies } from "next/headers";
+
 
 // export const getContentType = () => ({
 //     'Content-Type': 'application/json'

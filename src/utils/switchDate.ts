@@ -1,4 +1,3 @@
-import { Blood } from "@/types/profile";
 
 export const getActivityLevelValue = (level: string): string => {
     switch (level) {

@@ -1,4 +1,3 @@
-import { cn } from "@/utils/utils";
 
 interface ITextWithBorder {
     text?: string | number

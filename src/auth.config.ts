@@ -1,4 +1,4 @@
-import type { NextAuthConfig, User } from "next-auth";
+import type { NextAuthConfig } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { login } from "../actions/login";
 // import { cookies } from "next/headers";
@@ -17,6 +17,7 @@ export default {
         password: { label: "password", type: "password" },
       },
       async authorize(credentials: ICredentials | any, req) {
+        // async authorize(credentials: ICredentials | any, _) {
         if (!credentials) return;
         const data = await login({
           email: credentials?.email,

@@ -6,7 +6,7 @@ interface IArrowIcon {
     isDisabled?: boolean
 }
 
-export default function ArrowIcon({ className, onClick, isDisabled }: IArrowIcon) {
+export default function ArrowIcon({ className, onClick }: IArrowIcon) {
     return <svg
         onClick={onClick}
         className={className}

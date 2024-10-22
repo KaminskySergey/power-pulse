@@ -4,7 +4,7 @@ import { writeFile } from "fs/promises";
 import { auth } from "@/auth";
 import { updateAvatar } from "../../../../actions/profile";
 
-export const POST = async (req: any, res: any) => {
+export const POST = async (req: any, _: any) => {
   const formData = await req.formData();
   const session = await auth();
   if (!session) return;

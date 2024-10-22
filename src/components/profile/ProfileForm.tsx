@@ -6,15 +6,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import Button from '../ui/button/Button';
 import CalendarIcon from '../svg/CalendarIcon';
 import CustomCalendar from '../ui/calendar/CustomCalendar';
-import { format, formatISO, isValid, parse } from 'date-fns';
+import { format } from 'date-fns';
 import RadioInput from '../ui/input/RadioInput';
 import { getActivityLevelKey, getActivityLevelValue, getBloodKey, getBloodValue, getSexKey, getSexValue } from '@/utils/switchDate';
 import DateInput from '../ui/input/DateInput';
-import { ProfileService } from '@/services/ProfileService';
-import Cookies from 'js-cookie';
 import { convertToISO, getFormattedBirthday } from '@/utils/utils';
 import { Blood, IProfileUpdate, LevelActivity, Sex } from '@/types/profile';
-import { getSession, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import { handleToastError, handleToastSuccess } from '@/utils/toast';
 import { updateProfile } from '../../../actions/profile';
 interface IProfileForm {

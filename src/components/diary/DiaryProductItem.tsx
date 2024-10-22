@@ -3,12 +3,8 @@ import { IDiaryConsumedProducts } from "@/types/diary";
 import ShoppingCartIcon from "../svg/ShoppingCartIcon";
 import LabeledText from "../ui/title/LabeledText";
 import { canEatProduct } from "@/utils/can-eat-product";
-import { BloodGroup, IProduct } from "@/types/product";
-import { handleToastError, handleToastSuccess } from "@/utils/toast";
-import { deleteDailyActivityProduct } from "../../../actions/daily";
-import { auth } from "@/auth";
-import { useSession } from "next-auth/react";
-import { useState } from "react";
+import { BloodGroup } from "@/types/product";
+
 
 interface IDiaryProductItem {
     product: IDiaryConsumedProducts
@@ -16,21 +12,7 @@ interface IDiaryProductItem {
     onDelete: (id: string, date: string) => void
 }
 export default function DiaryProductItem({ product, bloodProfile, onDelete }: IDiaryProductItem) {
-    const { data: session } = useSession();
-    // const [currentProduct, setCurrentProduct] = useState<any>(product)
-    // const handleDelete = async (id: string, date: string) => {
-    //     try {
-    //         await deleteDailyActivityProduct(session?.user.accessToken || '', id, date);
-    //         handleToastSuccess("Product Delete")
-    //         setCurrentProduct(null);
-    //     } catch (error) {
-    //         handleToastError('Something went wrong')
-    //         console.error("Failed to delete:", error);
-    //     }
-    // };
-    // if (!currentProduct) {
-    //     return null;
-    //   }
+
     return <li className="flex flex-col gap-[16px]">
         <div>
             <LabeledText text="Title" value={product.product.title} />

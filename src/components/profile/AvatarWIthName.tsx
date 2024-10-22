@@ -1,5 +1,5 @@
 'use client'
-
+import React from "react"
 import { useRef, useState } from "react"
 import Image from "next/image"
 import AvatarIcon from "../svg/AvatarIcon"
