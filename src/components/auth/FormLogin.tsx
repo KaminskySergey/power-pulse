@@ -27,8 +27,8 @@ export default function FormLogin() {
                 handleToastError("Invalid email or password");
             } else if (session?.status === 'authenticated') { // Successful login
                 handleToastSuccess('Login Successful');
-                router.push(`${process.env.NEXT_PUBLIC_APP_SERVER_URL}/profile`);
-                router.refresh();
+                // router.push(`${process.env.NEXT_PUBLIC_APP_SERVER_URL}/profile`);
+                // router.refresh();
             } else {
                 handleToastError('Unexpected error occurred');
             }
