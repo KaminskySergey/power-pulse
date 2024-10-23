@@ -17,14 +17,12 @@ export default {
         password: { label: "password", type: "password" },
       },
       async authorize(credentials: ICredentials | any, req) {
-        // async authorize(credentials: ICredentials | any, _) {
-        if (!credentials) return;
+        if (!credentials) return null; // Возвращаем null вместо undefined
         const data = await login({
           email: credentials?.email,
           password: credentials?.password,
         });
-        if(!data) return 
-        // cookies().set('token', data.accessToken, { secure: true })
+        if (!data) return null; // Возвращаем null если данных нет
         return data;
       },
     }),
@@ -35,7 +33,7 @@ export default {
 
       return token;
     },
-    
+
     async session({ token, session }) {
       session.user = {
         id: token.user.id as string,
@@ -52,20 +50,18 @@ export default {
 
   pages: {
     signIn: "/auth/login",
-    error: '/auth/error',
+    error: "/auth/error",
   },
   cookies: {
     sessionToken: {
       name: `__Secure-next-auth.session-token`,
       options: {
         httpOnly: true,
-        sameSite: 'lax',
-        path: '/',
-        secure: process.env.NODE_ENV === 'production', // Включить secure для продакшена
+        sameSite: "lax",
+        path: "/",
+        secure: process.env.NODE_ENV === "production", // Включить secure для продакшена
       },
     },
   },
-  secret: process.env.NEXTAUTH_SECRET
-  
-
+  secret: process.env.NEXTAUTH_SECRET,
 } satisfies NextAuthConfig;
