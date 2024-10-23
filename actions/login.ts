@@ -1,5 +1,4 @@
 "use server";
-import { fetchOptions } from "@/api/helpers";
 import { BASIC_URL } from "@/app/const/basic-server-url";
 
 export async function login(data: { email: string; password: string }) {
@@ -14,7 +13,7 @@ export async function login(data: { email: string; password: string }) {
     });
 
     const responseData = await response.json();
-
+    console.log(responseData, 'fffffffffffffffffffffff')
     return responseData
   } catch (error) {
     console.error("Login failed:", error);

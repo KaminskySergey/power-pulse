@@ -20,7 +20,6 @@ export default function FormLogin() {
     const session = useSession()
     const router = useRouter()
     const [formSubmitted, setFormSubmitted] = useState(false); // State variable to track form submission
-console.log(session?.status,' fdddddddddddd')
     useEffect(() => {
         if (formSubmitted) { // Run only if form has been submitted
             if (session?.status === 'unauthenticated') { // Unauthorized status code
