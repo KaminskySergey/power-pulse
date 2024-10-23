@@ -54,4 +54,5 @@ export default {
     signIn: "/auth/login",
     error: '/auth/error',
   },
+  secret: process.env.NEXTAUTH_SECRET
 } satisfies NextAuthConfig;
