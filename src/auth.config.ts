@@ -9,6 +9,8 @@ interface ICredentials {
 }
 
 export default {
+  trustHost: true,
+  // trustHostedDomain: true,
   providers: [
     Credentials({
       name: "credentials",
@@ -52,16 +54,16 @@ export default {
     signIn: "/auth/login",
     error: "/auth/error",
   },
-  cookies: {
-    sessionToken: {
-      name: `__Secure-next-auth.session-token`,
-      options: {
-        httpOnly: true,
-        sameSite: "lax",
-        path: "/",
-        secure: process.env.NODE_ENV === "production", 
-      },
-    },
-  },
+  // cookies: {
+  //   sessionToken: {
+  //     name: `__Secure-next-auth.session-token`,
+  //     options: {
+  //       httpOnly: true,
+  //       sameSite: "lax",
+  //       path: "/",
+  //       secure: process.env.NODE_ENV === "production", 
+  //     },
+  //   },
+  // },
   secret: process.env.NEXTAUTH_SECRET,
 } satisfies NextAuthConfig;
