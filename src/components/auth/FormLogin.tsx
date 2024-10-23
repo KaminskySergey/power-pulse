@@ -16,7 +16,7 @@ import { useEffect, useState } from "react"
 
 
 
-export default function FormLogin() {
+export default function FormLogin({ csrfToken }: { csrfToken: string }) {
     const session = useSession()
     const router = useRouter()
     const [formSubmitted, setFormSubmitted] = useState(false); // State variable to track form submission
@@ -59,7 +59,7 @@ export default function FormLogin() {
     return (
         <form onSubmit={formik.handleSubmit} className="">
 
-
+            <input type="hidden" name="csrfToken" value={csrfToken} />
             <div className="flex flex-col gap-[28px] md:gap-[64px]">
                 <div className="flex flex-col gap-[14px] md:gap-[20px]">
                     <div>

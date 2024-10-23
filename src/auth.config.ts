@@ -9,7 +9,7 @@ interface ICredentials {
 }
 
 export default {
-  trustHost: true,
+  // trustHost: true,
   // trustHostedDomain: true,
   providers: [
     Credentials({
@@ -19,12 +19,14 @@ export default {
         password: { label: "password", type: "password" },
       },
       async authorize(credentials: ICredentials | any, req) {
-        if (!credentials) return null; 
+        // async authorize(credentials: ICredentials | any, _) {
+        if (!credentials) return;
         const data = await login({
           email: credentials?.email,
           password: credentials?.password,
         });
-        if (!data) return null;
+        if(!data) return 
+        // cookies().set('token', data.accessToken, { secure: true })
         return data;
       },
     }),
@@ -35,7 +37,7 @@ export default {
 
       return token;
     },
-
+    
     async session({ token, session }) {
       session.user = {
         id: token.user.id as string,
@@ -49,21 +51,8 @@ export default {
       return session;
     },
   },
-
+  secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: "/auth/login",
-    error: "/auth/error",
   },
-  // cookies: {
-  //   sessionToken: {
-  //     name: `__Secure-next-auth.session-token`,
-  //     options: {
-  //       httpOnly: true,
-  //       sameSite: "lax",
-  //       path: "/",
-  //       secure: process.env.NODE_ENV === "production", 
-  //     },
-  //   },
-  // },
-  secret: process.env.NEXTAUTH_SECRET,
 } satisfies NextAuthConfig;
