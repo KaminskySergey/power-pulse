@@ -17,7 +17,7 @@ export default function LayoutBasic({ children }: ILayoutBasic) {
         width: 682,
         height: 800,
         quality: 100,
-        src: '/bg/people-training-gym-desktop.png',
+        src: '/public/bg/people-training-gym-desktop.png',
     })
     const {
         props: { srcSet: tablet },
@@ -26,7 +26,7 @@ export default function LayoutBasic({ children }: ILayoutBasic) {
         width: 440,
         height: 894,
         quality: 100,
-        src: '/bg/people-training-gym-tablet.png',
+        src: '/public/bg/people-training-gym-tablet.png',
     })
     const {
         props: { srcSet: mobile, ...rest },
@@ -35,10 +35,10 @@ export default function LayoutBasic({ children }: ILayoutBasic) {
         width: 300,
         height: 572,
         quality: 100,
-        src: '/bg/people-training-gym.png',
+        src: '/public/bg/people-training-gym.png',
     })
     return (
-        <div className="flex flex-col gap-[90px] md:gap-[140px] lg:gap-[150px] py-[24px] px-[24px]  pb-0 md:px-[32px] md:pt-[32px] max-w-[1536px] bg-black h-screen  mx-auto relative">
+        <div className="flex flex-col gap-[90px] md:gap-[140px] lg:gap-[150px] py-[24px] px-[24px]  pb-0 md:px-[32px] md:pt-[32px] max-w-[1536px]/public bg-black h-screen  mx-auto relative">
             {/* <HomeComponent /> */}
             <div className="flex justify-start z-[100]">
                 <LogoHeader />
@@ -53,7 +53,7 @@ export default function LayoutBasic({ children }: ILayoutBasic) {
                     <CardInfoVideosHome />
                     <CardInfoCalHome />
                 </picture>
-                {/* <Image src={'/bg/people-training-gym.png'} fill alt="bg" /> */}
+                {/* <Image src={'/public/bg/people-training-gym.png'} fill alt=/public"bg" /> */}
             </div>
         </div>);
 }
