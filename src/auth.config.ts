@@ -17,12 +17,12 @@ export default {
         password: { label: "password", type: "password" },
       },
       async authorize(credentials: ICredentials | any, req) {
-        if (!credentials) return null; // Возвращаем null вместо undefined
+        if (!credentials) return null; 
         const data = await login({
           email: credentials?.email,
           password: credentials?.password,
         });
-        if (!data) return null; // Возвращаем null если данных нет
+        if (!data) return null;
         return data;
       },
     }),
@@ -59,7 +59,7 @@ export default {
         httpOnly: true,
         sameSite: "lax",
         path: "/",
-        secure: process.env.NODE_ENV === "production", // Включить secure для продакшена
+        secure: process.env.NODE_ENV === "production", 
       },
     },
   },
