@@ -54,5 +54,18 @@ export default {
     signIn: "/auth/login",
     error: '/auth/error',
   },
+  cookies: {
+    sessionToken: {
+      name: `__Secure-next-auth.session-token`,
+      options: {
+        httpOnly: true,
+        sameSite: 'lax',
+        path: '/',
+        secure: process.env.NODE_ENV === 'production', // Включить secure для продакшена
+      },
+    },
+  },
   secret: process.env.NEXTAUTH_SECRET
+  
+
 } satisfies NextAuthConfig;
