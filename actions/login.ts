@@ -13,7 +13,6 @@ export async function login(data: { email: string; password: string }) {
     });
 
     const responseData = await response.json();
-    console.log(responseData, 'fffffffffffffffffffffff')
     return responseData
   } catch (error) {
     console.error("Login failed:", error);

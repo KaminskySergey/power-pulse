@@ -9,7 +9,8 @@ interface ICredentials {
 }
 
 export default {
-  // trustHost: true,
+  trustHost: true,
+  
   // trustHostedDomain: true,
   providers: [
     Credentials({
@@ -52,6 +53,7 @@ export default {
     },
   },
   secret: process.env.NEXTAUTH_SECRET,
+  
   pages: {
     signIn: "/auth/login",
   },
