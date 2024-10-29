@@ -48,7 +48,7 @@ export default function ProfileForm({ name, email, height, currentWeight, desire
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
-    if (session.status !== "authenticated") return
+    // if (session.status !== "authenticated") return
     const formik = useFormik({
         initialValues: {
             name,

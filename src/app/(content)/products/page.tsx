@@ -1,4 +1,3 @@
-import { auth } from "@/auth";
 import { ProductsComponent } from "@/components/products/ProductsComponent";
 import { ProductService } from "@/services/ProductService";
 import { IFilters } from "@/types/product";
@@ -25,8 +24,8 @@ interface IProducts {
 
 
 export default async function Products({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
-    const session = await auth()
-    if (!session) return
+    // const session = await auth()
+    // if (!session) return
     
     const page = typeof searchParams.page === "string" ? parseInt(searchParams.page, 10) : 1;
     const searchTerm = typeof searchParams.searchTerm === "string" ? searchParams.searchTerm : undefined
@@ -35,7 +34,7 @@ export default async function Products({ searchParams }: { searchParams: { [key:
 
 
     const data = await getProducts(page, searchTerm, category, allowed)
-    console.log(data, 'tttttttttttttttttttttttttttttt')
+
     const categories = await getCategory()
     const profile: IProfile = await getProfile()
     return <ProductsComponent allowed={allowed as string} category={category as string} searchTerm={searchTerm as string} categories={categories} bloodProfile={profile.blood} products={data.products} />

@@ -1,7 +1,9 @@
 'use server'
+import { authOptions } from "@/auth"
 import { BASIC_URL } from "@/app/const/basic-server-url";
-import { auth } from "@/auth";
+
 import { IPerformedExercise } from "@/types/exercise";
+import { getServerSession } from "next-auth";
 
 
 export async function getExercisesBySlug(
@@ -9,7 +11,7 @@ export async function getExercisesBySlug(
   slugName: string,
   slug: string,
 ) {
-  const session = await auth();
+  const session = await getServerSession(authOptions)
  
   const response = await fetch(
     `${BASIC_URL}/exercises?${slugName}=${slug}&page=${page}`,
@@ -26,7 +28,7 @@ export async function getExercisesBySlug(
 }
 
 export async function createPerformedExercise(data: IPerformedExercise) {
-  const session = await auth();
+  const session = await getServerSession(authOptions)
 
   const response = await fetch(`${BASIC_URL}/performed-exercise`, {
     method: "POST",

@@ -3,8 +3,10 @@ import { Roboto } from "next/font/google";
 import React from "react";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
-import { SessionProvider } from "next-auth/react";
-import { auth } from "../auth";
+
+import { getServerSession } from "next-auth";
+import SessionWrapper from "@/app/providers/SessionWrapper";
+import { authOptions } from "@/auth";
 
 
 const roboto = Roboto({
@@ -26,19 +28,16 @@ export default async function RootLayout({
   children: React.ReactNode;
   // session: any
 }>) {
-  const session = await auth();
+  const session = await getServerSession(authOptions);
   return (
-    <SessionProvider session={session}>
-
-      <html lang="en">
-        <body className={roboto.className} style={{ backgroundColor: '#000000' }}>
-          {/* <AuthProvider session={session}> */}
-          <Toaster position="top-center"/>
-            {children}
-          {/* </AuthProvider> */}
-          <div id="root_modal" />
-        </body>
-      </html>
-    </SessionProvider>
+    <html lang="en">
+      <body className={roboto.className} style={{ backgroundColor: '#000000' }}>
+        <Toaster position="top-center" />
+        <SessionWrapper session={session}>
+          {children}
+        </SessionWrapper>
+        <div id="root_modal" />
+      </body>
+    </html>
   );
 }

@@ -1,8 +1,9 @@
 "use server";
+import { authOptions } from "@/auth"
 import { BASIC_URL } from "@/app/const/basic-server-url";
-import { auth } from "@/auth";
-import { ProductService } from "@/services/ProductService";
-import { ICreateCustomedProduct, IFilters } from "@/types/product";
+
+import { ICreateCustomedProduct } from "@/types/product";
+import { getServerSession } from "next-auth";
 
 export async function getProducts(
   page: number = 1,
@@ -10,7 +11,7 @@ export async function getProducts(
   category?: string,
   allowed?: string
 ) {
-  const session = await auth();
+  const session = await getServerSession(authOptions)
 
   const params = new URLSearchParams();
 
@@ -33,7 +34,7 @@ export async function getProducts(
 }
 
 export async function createCustomedProduct(data: ICreateCustomedProduct) {
-  const session = await auth();
+  const session = await getServerSession(authOptions)
 
   const response = await fetch(`${BASIC_URL}/consumed-product`, {
     method: "POST",

@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
 import PTag from "../ui/button/Ptag"
 import { redirect } from "next/navigation";
-import { auth } from "../../auth";
+import { getServerSession } from "next-auth";
 
 interface IFormAuthComponent {
     children: ReactNode
@@ -10,7 +10,8 @@ interface IFormAuthComponent {
 }
 
 export default async function FormAuthComponent({ children, title, text }: IFormAuthComponent) {
-    const session = await auth()
+    const session = await getServerSession();
+    console.log(session)
     if(session) {
         redirect('/profile')
     }

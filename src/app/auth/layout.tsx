@@ -5,10 +5,7 @@ export default async function LayoutAuth({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    // const session = await getServerSession(authOptions)
-    // if(session) {
-    //     redirect('/profile')
-    // }
+   
     return (
           <LayoutBasic>
           {children}

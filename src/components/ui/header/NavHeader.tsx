@@ -16,35 +16,39 @@ import { getProfileAvatar } from '../../../../actions/profile';
 
 
 export default function NavHeader() {
-    const session = useSession()
-    if (session.status !== "authenticated") return
-    const [currentAvatar, setCurrentAvatar] = useState(session.data.user.avatarPath)
-    const [isOpenMenu, setIsOpenMenu] = useState(false)
-    const pathname = usePathname()
-    useEffect(() => {
-        if (session.status === 'authenticated') {
-            const fetchProfileAvatar = async () => {
-                
-                try {
-                    if (currentAvatar === null) {
-                        const res = await getProfileAvatar();
-                        console.log(res, 'nnnnn')
-                        if (!res.avatarPath) return
-                        setCurrentAvatar(res.avatarPath);
-                    }
+    const { data: session, status } = useSession();
+    console.log(session, '1111111111111111111111');
 
+    // Инициализируем состояния
+    const [currentAvatar, setCurrentAvatar] = useState(session?.user.avatarPath || null);
+    const [isOpenMenu, setIsOpenMenu] = useState(false);
+    const pathname = usePathname();
+
+    useEffect(() => {
+        if (status === 'authenticated') {
+            const fetchProfileAvatar = async () => {
+                try {
+                    if (!currentAvatar) {
+                        const res = await getProfileAvatar();
+                        console.log(res, 'nnnnn');
+                        if (res.avatarPath) {
+                            setCurrentAvatar(res.avatarPath);
+                        }
+                    }
                 } catch (error) {
                     console.error('Failed to fetch profile avatar:', error);
                 }
             };
-
             fetchProfileAvatar();
         }
-    }, []);
+    }, [status, currentAvatar]); // Добавьте зависимости
 
     const handleToggle = () => {
-        setIsOpenMenu(pS => !pS)
-    }
+        setIsOpenMenu(prev => !prev);
+    };
+
+    // Если пользователь не аутентифицирован, ничего не рендерим
+    if (status !== "authenticated") return null;
     return <>
         <div className='sm:hidden md:hidden lg:block'>
             <LaptopNav />
@@ -55,7 +59,7 @@ export default function NavHeader() {
                 <li className=''>
                     <Link href={'/profile'}>
 
-                         <div className={`p-1 ${pathname === '/profile' ? 'bg-orange rounded-lg' : ''}`}><SettingsIcon  width="24px" height="24px" /></div> 
+                        <div className={`p-1 ${pathname === '/profile' ? 'bg-orange rounded-lg' : ''}`}><SettingsIcon width="24px" height="24px" /></div>
                     </Link>
 
                 </li>
@@ -73,7 +77,7 @@ export default function NavHeader() {
                 <li className='z-50'>
                     {isOpenMenu ?
                         <button type='button' onClick={handleToggle}>
-                            <CrossIcon className=''/>
+                            <CrossIcon className='' />
                         </button> : (
                             <>
                                 <button type='button'>
@@ -93,7 +97,7 @@ export default function NavHeader() {
                 </li>
             </ul>
         </div>
-        {isOpenMenu && <MobileNav handleToggle={handleToggle}/>}
+        {isOpenMenu && <MobileNav handleToggle={handleToggle} />}
 
     </>
 }

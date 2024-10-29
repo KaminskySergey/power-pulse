@@ -1,7 +1,7 @@
 'use client'
 import React from "react"
-import { doLogout } from "@/app/actions/logout"
 import LogoutIcon from "@/components/svg/LogoutIcon"
+import { signOut } from "next-auth/react"
 
 interface ILogout {
     fill?: string
@@ -10,15 +10,9 @@ interface ILogout {
 
 export default function Logout({fill, className}: ILogout) {
 
-    const handleLogout = async () => {
-        try {
-             await doLogout()
-        } catch (error) {
-            
-        }
-    }
 
-    return <div onClick={handleLogout} className={`flex justify-center items-center gap-[8px] cursor-pointer ${className}`}>
+
+    return <div onClick={() => signOut()} className={`flex justify-center items-center gap-[8px] cursor-pointer ${className}`}>
         <p className="text-[14px] font-normal leading-5	text-white">Logout</p>
         <LogoutIcon fill={fill}/>
     </div>

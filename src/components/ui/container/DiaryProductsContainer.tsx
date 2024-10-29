@@ -18,15 +18,14 @@ interface IDiaryProductsContainer {
 
 export default function DiaryProductsContainer({ consumedProducts, bloodProfile }: IDiaryProductsContainer) {
     const [products, setProducts] = useState(consumedProducts);
-    const { data: session } = useSession()
-    if (!session) return
+    
 
     useEffect(() => {
         setProducts(consumedProducts);
     }, [consumedProducts]);
     const handleDelete = async (id: string, date: string) => {
         try {
-            await deleteDailyActivityProduct(session?.user.accessToken, id, date);
+            await deleteDailyActivityProduct(id, date);
             setProducts(products.filter(product => product.id !== id));
             handleToastSuccess('Product deleted successfully');
         } catch (error) {

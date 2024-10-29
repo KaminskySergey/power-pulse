@@ -1,10 +1,12 @@
 'use server'
 
 import { BASIC_URL } from "@/app/const/basic-server-url"
-import { auth } from "@/auth"
+import { authOptions } from "@/auth"
+import { getServerSession } from "next-auth"
+
 
 export async function getCategory() {
-    const session = await auth()
+    const session = await getServerSession(authOptions)
     const response = await fetch(`${BASIC_URL}/categories`, {
      method: 'GET',
      headers: {

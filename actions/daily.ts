@@ -1,9 +1,10 @@
 "use server";
+import { authOptions } from "@/auth"
 import { BASIC_URL } from "@/app/const/basic-server-url";
-import { auth } from "@/auth";
+import { getServerSession } from "next-auth";
 
 export async function getDailyActivity(date: string) {
-  const session = await auth();
+  const session = await getServerSession(authOptions)
   const response = await fetch(`${BASIC_URL}/daily-activities?date=${date}`, {
     method: "GET",
     headers: {
@@ -17,11 +18,10 @@ export async function getDailyActivity(date: string) {
 }
 
 export async function deleteDailyActivityProduct(
-  token: string,
   id: string,
   date: string
 ) {
-  const session = await auth();
+  const session = await getServerSession(authOptions)
   const response = await fetch(
     `${BASIC_URL}/consumed-product/${id}?date=${date}`,
     {
@@ -37,11 +37,10 @@ export async function deleteDailyActivityProduct(
 }
 
 export async function deleteDailyActivityExercise(
-  token: string,
   id: string,
   date: string
 ) {
-  const session = await auth();
+  const session = await getServerSession(authOptions)
   const response = await fetch(
     `${BASIC_URL}/performed-exercise/${id}?date=${date}`,
     {

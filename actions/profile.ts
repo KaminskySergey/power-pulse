@@ -1,10 +1,11 @@
 'use server'
+import { authOptions } from "@/auth"
 import { BASIC_URL } from "@/app/const/basic-server-url";
-import { auth } from "@/auth";
 import { IAvatar, IProfileUpdate } from "@/types/profile";
+import { getServerSession } from "next-auth";
 
 export async function getProfile() {
-    const session = await auth()
+    const session = await getServerSession(authOptions)
     const response = await fetch(`${BASIC_URL}/profile`, {
      method: 'GET',
      headers: {
@@ -17,7 +18,7 @@ export async function getProfile() {
 } 
 
 export async function getInfoCardCurrenDay(date: string) {
-    const session = await auth()
+    const session = await getServerSession(authOptions)
     const response = await fetch(`${BASIC_URL}/calculate/current-day?date=${date}`, {
      method: 'GET',
      headers: {
@@ -30,7 +31,7 @@ export async function getInfoCardCurrenDay(date: string) {
 } 
 
 export async function getAllCalculate() {
-    const session = await auth()
+    const session = await getServerSession(authOptions)
     const response = await fetch(`${BASIC_URL}/calculate/bmr`, {
      method: 'GET',
      headers: {
@@ -43,7 +44,7 @@ export async function getAllCalculate() {
 } 
 
 export async function getProfileAvatar() {
-    const session = await auth()
+    const session = await getServerSession(authOptions)
     const response = await fetch(`${BASIC_URL}/profile/avatar`, {
      method: 'GET',
      headers: {
@@ -56,7 +57,7 @@ export async function getProfileAvatar() {
 } 
 
 export async function updateProfile(data: IProfileUpdate) {
-    const session = await auth()
+    const session = await getServerSession(authOptions)
     const response = await fetch(`${BASIC_URL}/profile`, {
      method: 'PUT',
      headers: {
@@ -71,7 +72,7 @@ export async function updateProfile(data: IProfileUpdate) {
 } 
 
 export async function updateAvatar(data: IAvatar) {
-    const session = await auth()
+    const session = await getServerSession(authOptions)
     const response = await fetch(`${BASIC_URL}/profile/avatar`, {
      method: 'PUT',
      headers: {

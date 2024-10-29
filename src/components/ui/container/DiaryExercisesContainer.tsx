@@ -18,14 +18,12 @@ interface IDiaryExercisesContainer {
 
 export default function DiaryExercisesContainer({ performedExercises}: IDiaryExercisesContainer) {
     const [exercises, setExercises] = useState(performedExercises);
-    const { data: session } = useSession()
-    if (!session) return
     useEffect(() => {
         setExercises(performedExercises);
     }, [performedExercises]);
     const handleDelete = async (id: string, date: string) => {
         try {
-            await deleteDailyActivityExercise(session?.user.accessToken, id, date);
+            await deleteDailyActivityExercise(id, date);
             setExercises(exercises.filter(exercise => exercise.id !== id));
             handleToastSuccess('Exercise deleted successfully');
         } catch (error) {

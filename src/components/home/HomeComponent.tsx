@@ -1,11 +1,12 @@
 import TitleHomePage from "../ui/title/TitleHomePage";
 import ButtonAuth from "./ButtonAuth";
 import { redirect } from "next/navigation";
-import { auth } from "../../auth";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/auth";
 
 
 export default async function HomeComponent() {
-    const session = await auth()
+    const session = await getServerSession(authOptions)
     if(session) {
         redirect('/profile')
     }
